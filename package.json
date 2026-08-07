@@ -1,0 +1,25 @@
+{
+  "name": "cadence",
+  "version": "1.0.0",
+  "description": "A typing speed practice app built with Vue and Webpack",
+  "private": true,
+  "scripts": {
+    "dev": "webpack-dashboard -- webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "vue": "^3.4.21"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.4.21",
+    "css-loader": "^6.10.0",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.4",
+    "vue-loader": "^17.4.2",
+    "webpack": "^5.90.3",
+    "webpack-cli": "^5.1.4",
+    "webpack-dashboard": "^3.3.8",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "packageManager": "yarn@4.18.0"
+}
