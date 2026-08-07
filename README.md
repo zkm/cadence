@@ -58,6 +58,10 @@ To build the app for production: `yarn build`
 
 This generates optimized, content-hashed assets in the `dist` directory.
 
+## Testing
+
+Run the test suite with `yarn test` (Jest, via `@vue/test-utils`). Spec files live alongside the code they cover, e.g. `src/components/TypingTest.spec.js`.
+
 ## Linting & formatting
 
 ```zsh

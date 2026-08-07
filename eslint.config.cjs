@@ -44,5 +44,13 @@ module.exports = [
       'vue/multi-word-component-names': 'off',
     },
   },
+  {
+    files: ['**/*.spec.js'],
+    languageOptions: {
+      globals: {
+        ...globals.jest,
+      },
+    },
+  },
   prettierConfig,
 ];
