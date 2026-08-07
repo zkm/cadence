@@ -2,19 +2,34 @@
   "name": "cadence",
   "version": "1.0.0",
   "description": "A typing speed practice app built with Vue and Webpack",
+  "homepage": "https://zkm.github.io/cadence/",
   "private": true,
+  "license": "MIT",
+  "author": "Zach Schneider",
+  "repository": "git@github.com:zkm/cadence.git",
   "scripts": {
     "dev": "webpack-dashboard -- webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier --write \"src/**/*.{js,vue,css}\"",
+    "format:check": "prettier --check \"src/**/*.{js,vue,css}\"",
+    "lint": "eslint src webpack.config.js",
+    "lint:fix": "eslint src webpack.config.js --fix"
   },
   "dependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@vue/compiler-sfc": "^3.4.21",
     "css-loader": "^6.10.0",
+    "eslint": "^10.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.9.0",
     "html-webpack-plugin": "^5.6.0",
+    "prettier": "^3.9.6",
     "style-loader": "^3.3.4",
+    "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
     "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",

@@ -1,9 +1,37 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
 node_modules/
+
+# Build output
 dist/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Editor / OS
 .DS_Store
-yarn-error.log
+.vscode/
+.idea/
 
 # Yarn Berry (node-modules linker)
 .yarn/*
 !.yarn/releases
 !.pnp.*
+.yarn-integrity
+package-lock.json

@@ -16,24 +16,21 @@
     </div>
 
     <div class="prompt" @click="focusInput">
-      <span
-        v-for="(char, i) in promptChars"
-        :key="i"
-        :class="charClass(i)"
-        >{{ char }}</span
-      >
+      <span v-for="(char, i) in promptChars" :key="i" :class="charClass(i)">{{
+        char
+      }}</span>
     </div>
 
     <input
       ref="hiddenInput"
-      class="hidden-input"
       v-model="typed"
-      @input="onInput"
-      @keydown="onKeydown"
+      class="hidden-input"
       autocomplete="off"
       autocorrect="off"
       autocapitalize="off"
       spellcheck="false"
+      @input="onInput"
+      @keydown="onKeydown"
     />
 
     <div class="footer">
@@ -84,7 +81,10 @@ function onInput() {
   if (typed.value.length > prompt.value.length) {
     typed.value = typed.value.slice(0, prompt.value.length);
   }
-  if (status.value === 'running' && typed.value.length === prompt.value.length) {
+  if (
+    status.value === 'running' &&
+    typed.value.length === prompt.value.length
+  ) {
     finish();
   }
 }
@@ -266,7 +266,9 @@ onBeforeUnmount(() => {
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 }
 
 .restart:hover {
