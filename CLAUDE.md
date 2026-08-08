@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Package manager is Yarn 4 (Berry), pinned via `packageManager` in `package.json` — run `corepack enable` once if `yarn -v` doesn't report 4.x. Do not use npm (no `package-lock.json`; `nodeLinker: node-modules` is set in `.yarnrc.yml`, so `node_modules/` is used, not PnP).
 
+Requires Node.js 22.15+ (`webpack-dev-server` 6's engine floor); both GitHub Actions workflows and the README pin to this.
+
 ```zsh
 yarn                # install deps
 yarn dev            # dev server at localhost:8080, wrapped in webpack-dashboard TUI, HMR on
@@ -15,6 +17,7 @@ yarn lint:fix
 yarn format         # Prettier, writes changes to src/**/*.{js,vue,css}
 yarn format:check
 yarn test         # Jest, runs src/**/*.spec.js
+yarn test src/components/TypingTest.spec.js   # run a single spec file
 ```
 
 Tests use Jest 29 (pinned — `@vue/vue3-jest` 29.x doesn't yet support Jest 30) with `@vue/vue3-jest` for `.vue` SFCs, `babel-jest` for plain `.js`, and `@vue/test-utils` for mounting components. `jest-environment-jsdom` provides the DOM. Config lives in `jest.config.cjs` and `babel.config.cjs` (both root-level, `.cjs` since `package.json` has no `"type": "module"`). Spec files sit next to the code they test (`Foo.vue` → `Foo.spec.js`), not in a separate `__tests__` tree.

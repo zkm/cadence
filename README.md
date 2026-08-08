@@ -24,7 +24,7 @@ Cadence is a typing speed practice app built with Vue 3 and webpack. It tracks W
     ```
 
 Requirements
-- Node.js 20+
+- Node.js 22.15+
 - Yarn 4 (Berry) via Corepack
 
 ## Try it locally
