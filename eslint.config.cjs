@@ -48,7 +48,7 @@ module.exports = [
     files: ['**/*.spec.js'],
     languageOptions: {
       globals: {
-        ...globals.jest,
+        ...globals.vitest,
       },
     },
   },

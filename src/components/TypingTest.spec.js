@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils';
 import TypingTest from './TypingTest.vue';
 
-jest.mock('../data/prompts.js', () => ({
-  __esModule: true,
+vi.mock('../data/prompts.js', () => ({
   default: ['abc'],
 }));
 
