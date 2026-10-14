@@ -1,11 +1,10 @@
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const DashboardPlugin = require('webpack-dashboard/plugin');
+const WebpackBar = require('webpackbar');
+const { RsdoctorWebpackPlugin } = require('@rsdoctor/webpack-plugin');
 
-module.exports = (env, argv) => {
-  const isDev = argv.mode === 'development';
-
+module.exports = () => {
   return {
     entry: './src/main.js',
     output: {
@@ -37,7 +36,8 @@ module.exports = (env, argv) => {
         template: './public/index.html',
         title: 'Cadence — Typing Practice',
       }),
-      ...(isDev ? [new DashboardPlugin()] : []),
+      new WebpackBar({ name: 'cadence' }),
+      ...(process.env.RSDOCTOR ? [new RsdoctorWebpackPlugin()] : []),
     ],
     devServer: {
       static: path.resolve(__dirname, 'dist'),

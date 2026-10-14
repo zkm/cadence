@@ -10,8 +10,9 @@ Requires Node.js 22.15+ (`webpack-dev-server` 6's engine floor); both GitHub Act
 
 ```zsh
 yarn                # install deps
-yarn dev            # dev server at localhost:8080, wrapped in webpack-dashboard TUI, HMR on
+yarn dev            # dev server at localhost:8080 with webpackbar progress, HMR on
 yarn build          # production build to dist/
+yarn doctor         # production build + Rsdoctor report (opens in browser)
 yarn lint           # ESLint over src/ and webpack.config.js (JS + .vue)
 yarn lint:fix
 yarn format         # Prettier, writes changes to src/**/*.{js,vue,css}
@@ -22,7 +23,7 @@ yarn test src/components/TypingTest.spec.js   # run a single spec file
 
 Tests use Vitest with `@vitejs/plugin-vue` for `.vue` SFCs and `@vue/test-utils` for mounting components; the `jsdom` environment provides the DOM. Vitest only runs the tests — webpack still builds the app. Config lives in `vitest.config.mjs` (root-level, `.mjs` since `package.json` has no `"type": "module"`), with `globals: true` so specs use `describe`/`it`/`expect`/`vi` without imports. Spec files sit next to the code they test (`Foo.vue` → `Foo.spec.js`), not in a separate `__tests__` tree.
 
-`yarn dev` runs through `webpack-dashboard --`, which takes over the full terminal (alt-screen TUI via `neo-blessed`). It won't behave in a non-interactive/piped shell — that's expected, not a bug.
+`webpackbar` shows a progress bar in an interactive terminal and falls back to plain `[webpackbar]` log lines in a non-interactive/piped shell. `yarn doctor` sets `RSDOCTOR=true`, which adds `RsdoctorWebpackPlugin`; it writes its data to `dist/.rsdoctor` and serves the report until stopped. `yarn build` cleans `dist/`, so the report is never deployed.
 
 ## Architecture
 
@@ -33,7 +34,7 @@ Vue 3 (Options-free, `<script setup>` SFCs) bundled with webpack 5. Single-page,
 - `src/components/TypingTest.vue` — all typing-test logic and UI in one component: prompt selection, per-character diffing against user input, WPM/accuracy computation, and the timer. Input capture is a visually-hidden `<input>` (`.hidden-input`, positioned off-screen but focusable) bound via `v-model`, rather than `contenteditable` or per-keystroke `keydown` handling — comparing the full typed string against the prompt string index-by-index is the core mechanic (`charClass()`).
 - `src/data/prompts.js` — flat array of practice sentences; `pickPrompt()` in `TypingTest.vue` avoids repeating the immediately-previous prompt.
 
-`webpack.config.js` exports a function `(env, argv) => {...}` (not a static object) specifically so `DashboardPlugin` can be conditionally added only when `argv.mode === 'development'` — production builds never load webpack-dashboard. `output.publicPath` is left at webpack 5's default (`'auto'`) deliberately, since the production bundle is served from a GitHub Pages subpath (`/cadence/`), not domain root.
+`webpack.config.js` exports a function. `WebpackBar` runs in every mode; `RsdoctorWebpackPlugin` is only added when `process.env.RSDOCTOR` is set, since it slows the build and changes `devtoolModuleFilenameTemplate`. `output.publicPath` is left at webpack 5's default (`'auto'`) deliberately, since the production bundle is served from a GitHub Pages subpath (`/cadence/`), not domain root.
 
 ### Linting
 
