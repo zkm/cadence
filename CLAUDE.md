@@ -16,11 +16,11 @@ yarn lint           # ESLint over src/ and webpack.config.js (JS + .vue)
 yarn lint:fix
 yarn format         # Prettier, writes changes to src/**/*.{js,vue,css}
 yarn format:check
-yarn test         # Jest, runs src/**/*.spec.js
+yarn test         # Vitest, runs src/**/*.spec.js
 yarn test src/components/TypingTest.spec.js   # run a single spec file
 ```
 
-Tests use Jest 29 (pinned — `@vue/vue3-jest` 29.x doesn't yet support Jest 30) with `@vue/vue3-jest` for `.vue` SFCs, `babel-jest` for plain `.js`, and `@vue/test-utils` for mounting components. `jest-environment-jsdom` provides the DOM. Config lives in `jest.config.cjs` and `babel.config.cjs` (both root-level, `.cjs` since `package.json` has no `"type": "module"`). Spec files sit next to the code they test (`Foo.vue` → `Foo.spec.js`), not in a separate `__tests__` tree.
+Tests use Vitest with `@vitejs/plugin-vue` for `.vue` SFCs and `@vue/test-utils` for mounting components; the `jsdom` environment provides the DOM. Vitest only runs the tests — webpack still builds the app. Config lives in `vitest.config.mjs` (root-level, `.mjs` since `package.json` has no `"type": "module"`), with `globals: true` so specs use `describe`/`it`/`expect`/`vi` without imports. Spec files sit next to the code they test (`Foo.vue` → `Foo.spec.js`), not in a separate `__tests__` tree.
 
 `yarn dev` runs through `webpack-dashboard --`, which takes over the full terminal (alt-screen TUI via `neo-blessed`). It won't behave in a non-interactive/piped shell — that's expected, not a bug.
 
