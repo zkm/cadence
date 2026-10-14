@@ -8,8 +8,9 @@
   "author": "Zach Schneider",
   "repository": "git@github.com:zkm/cadence.git",
   "scripts": {
-    "dev": "webpack-dashboard -- webpack serve --mode development",
+    "dev": "webpack serve --mode development",
     "build": "webpack --mode production",
+    "doctor": "RSDOCTOR=true webpack --mode production",
     "format": "prettier --write \"src/**/*.{js,vue,css}\"",
     "format:check": "prettier --check \"src/**/*.{js,vue,css}\"",
     "lint": "eslint src webpack.config.js",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@rsdoctor/webpack-plugin": "^1.6.4",
     "@vitejs/plugin-vue": "^6.0.9",
     "@vue/compiler-dom": "^3.5.44",
     "@vue/compiler-sfc": "^3.5.44",
@@ -40,8 +42,8 @@
     "vue-loader": "^17.4.2",
     "webpack": "^5.109.2",
     "webpack-cli": "^7.2.2",
-    "webpack-dashboard": "^3.3.8",
-    "webpack-dev-server": "^6.0.0"
+    "webpack-dev-server": "^6.0.0",
+    "webpackbar": "^7.0.0"
   },
   "resolutions": {
     "nanoid": "^3.3.18"

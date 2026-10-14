@@ -48,9 +48,13 @@ The dev server opens in your default browser and serves at:
 
 ## Development
 
-To run the app in development mode with webpack-dashboard: `yarn dev`
+To run the app in development mode: `yarn dev`
 
-This starts the dev server behind the [webpack-dashboard](https://github.com/FormidableLabs/webpack-dashboard) terminal UI and opens the app in your default browser. Changes to the source code hot-reload automatically.
+This starts the dev server with a [webpackbar](https://github.com/unjs/webpackbar) progress bar and opens the app in your default browser. Changes to the source code hot-reload automatically.
+
+To analyze the build: `yarn doctor`
+
+This runs a production build with [Rsdoctor](https://rsdoctor.rs/) and opens its report in your browser: build timeline, loader and plugin timings, bundle composition and duplicate packages.
 
 ## Build
 
@@ -105,7 +109,7 @@ src/
 
 *   [Vue Documentation](https://vuejs.org/)
 *   [Webpack Documentation](https://webpack.js.org/)
-*   [Webpack Dashboard Documentation](https://github.com/FormidableLabs/webpack-dashboard)
+*   [Rsdoctor Documentation](https://rsdoctor.rs/)
 
 ### License
 
