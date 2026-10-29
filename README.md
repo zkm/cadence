@@ -1,7 +1,17 @@
 # cadence
 
-[![CI](https://github.com/zkm/cadence/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/zkm/cadence/actions/workflows/ci.yml)
-[![Deploy to Pages](https://github.com/zkm/cadence/actions/workflows/gh-pages.yml/badge.svg?branch=master)](https://github.com/zkm/cadence/actions/workflows/gh-pages.yml)
+[![CI](https://github.com/zkm/cadence/actions/workflows/ci.yml/badge.svg)](https://github.com/zkm/cadence/actions/workflows/ci.yml)
+[![Deploy to Pages](https://github.com/zkm/cadence/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/zkm/cadence/actions/workflows/gh-pages.yml)
+[![live demo](https://img.shields.io/website?url=https%3A%2F%2Fzkm.github.io%2Fcadence%2F&label=live%20demo)](https://zkm.github.io/cadence/)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?logo=vuedotjs&logoColor=white)
+![webpack](https://img.shields.io/badge/webpack-8DD6F9?logo=webpack&logoColor=black)
+![Vitest](https://img.shields.io/badge/Vitest-6E9F18?logo=vitest&logoColor=white)
+![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=black)
+![Yarn 4](https://img.shields.io/badge/Yarn-4-2C8EBB?logo=yarn&logoColor=white)
+![Node.js 22.15+](https://img.shields.io/badge/Node.js-22.15%2B-5FA04E?logo=nodedotjs&logoColor=white)
 
 Cadence is a typing speed practice app built with Vue 3 and webpack. It tracks WPM and accuracy live as you type, and is automatically deployed to GitHub Pages via GitHub Actions.
 
